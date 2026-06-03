@@ -1,0 +1,30 @@
+[
+    {
+        "title": "SIMS",
+        "description": "Smart Infusion Monitoring System; \r\nMonitoring infus yang di desain untuk keamanan pasien dan mengindari human error",
+        "image": "\/storage\/uploads\/NYLjQHsPIblhOfmDCNV8pdPbIFg4H1oZ74Vjb8me.png",
+        "tech": [
+            "Laravel",
+            "React",
+            "IOT",
+            "ESP32"
+        ],
+        "link": null,
+        "active": true,
+        "id": 1,
+        "order": 1
+    },
+    {
+        "title": "SABERGAME AI",
+        "description": "website persewaan konsol sabergame dengan bantuan AI chatbot sebagai navigassi website dan panduan pemesanan",
+        "tech": [
+            "Laravel",
+            "Ollama"
+        ],
+        "link": "https:\/\/github.com\/Fianisme\/sabergameAI.git",
+        "active": true,
+        "id": 2,
+        "order": 2,
+        "image": "\/storage\/uploads\/9HRaly9VDCUsTAVGsDZHlOtvVwXfZo6hEHsO67eX.png"
+    }
+]

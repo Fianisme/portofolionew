@@ -1,0 +1,56 @@
+{
+    "name": "FYANZ XDEV",
+    "tagline": "Forging high-performance web architectures & edgy digital solutions.",
+    "status": "LOG_STREAM: CONNECTED",
+    "location": "2026_MNG",
+    "bio": "Passionate web developer specializing in modern web architectures. Focused on building high-performance, scalable applications with clean code and exceptional user experiences.",
+    "social": {
+        "github": "https:\/\/github.com\/Fianisme",
+        "linkedin": "https:\/\/www.linkedin.com\/in\/fianisme\/",
+        "instagram": "https:\/\/instagram.com\/vrexaver",
+        "twitter": "",
+        "email": "alfianb.hamdan@gmail.com"
+    },
+    "skills": [
+        {
+            "name": "Laravel",
+            "level": 90,
+            "color": "#ff0055"
+        },
+        {
+            "name": "React",
+            "level": 85,
+            "color": "#00ffcc"
+        },
+        {
+            "name": "Vue.js",
+            "level": 80,
+            "color": "#00e5ff"
+        },
+        {
+            "name": "Node.js",
+            "level": 75,
+            "color": "#9d00ff"
+        },
+        {
+            "name": "TypeScript",
+            "level": 80,
+            "color": "#ff0055"
+        },
+        {
+            "name": "MySQL",
+            "level": 85,
+            "color": "#00ffcc"
+        },
+        {
+            "name": "Docker",
+            "level": 70,
+            "color": "#00e5ff"
+        },
+        {
+            "name": "Tailwind",
+            "level": 95,
+            "color": "#9d00ff"
+        }
+    ]
+}
