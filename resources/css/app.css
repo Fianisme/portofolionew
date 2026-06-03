@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@theme {
+    --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        font-family: 'Space Mono', monospace;
+    }
+}
+
+@layer utilities {
+    /* Skew untuk Apps & Certificates */
+    .skewed-card {
+        transform: skewX(-12deg);
+        transition: transform 0.3s ease;
+    }
+
+    .skewed-card:hover {
+        transform: skewX(-12deg) translateY(-8px);
+    }
+
+    .unskew-content {
+        transform: skewX(12deg);
+    }
+
+    /* Clip Path Diagonal untuk Contact Section */
+    @media (min-width: 768px) {
+        .diagonal-clip {
+            clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+    }
+}
