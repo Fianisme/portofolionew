@@ -1,4 +1,0 @@
-:{$PORT}
-
-root * /app/public
-php_server
