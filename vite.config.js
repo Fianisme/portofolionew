@@ -16,9 +16,10 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
-    server: {
-        watch: {
-            ignored: ['**/storage/framework/views/**'],
+ server: {
+        host: '0.0.0.0',
+        hmr: {
+            host: '192.168.1.109', // Ganti dengan IP lokal PC Anda
         },
     },
 });

@@ -88,20 +88,14 @@
                         <span class="w-1 h-4 bg-[#00ffcc]"></span> TECH_STACK //
                     </h3>
 
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div class="flex flex-wrap gap-2">
                         @forelse($profile['skills'] ?? [] as $skill)
-                            <div class="bg-[#12141c] border border-white/5 p-3 group hover:border-white/10 transition-colors">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-xs font-mono text-white tracking-wider">{{ $skill['name'] }}</span>
-                                    <span class="text-[10px] font-mono text-neutral-600">{{ $skill['level'] }}%</span>
-                                </div>
-                                <div class="w-full h-1 bg-neutral-800 rounded-full overflow-hidden">
-                                    <div class="h-full rounded-full transition-all duration-1000 group-hover:opacity-100 opacity-60"
-                                         style="width: {{ $skill['level'] }}%; background-color: {{ $skill['color'] ?? '#ff0055' }};"></div>
-                                </div>
-                            </div>
+                            <span class="px-3 py-1.5 bg-[#12141c] border border-white/5 hover:border-white/10 text-xs font-mono text-neutral-300 tracking-wider transition-colors"
+                                  style="border-left: 2px solid {{ $skill['color'] ?? '#ff0055' }};">
+                                {{ $skill['name'] }}
+                            </span>
                         @empty
-                            <div class="col-span-4 text-neutral-600 text-xs font-mono">No skills added yet. Edit in admin panel.</div>
+                            <span class="text-neutral-600 text-xs font-mono">No skills added yet. Edit in admin panel.</span>
                         @endforelse
                     </div>
                 </div>

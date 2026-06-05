@@ -129,16 +129,28 @@
             }
         }
 
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.appendChild(document.createTextNode(text));
+            return div.innerHTML;
+        }
+
         function insertCode() {
             const code = prompt('Enter code:');
             if (code) {
-                document.execCommand('insertHTML', false, '<pre><code>' + code + '</code></pre>');
+                document.execCommand('insertHTML', false, '<pre><code>' + escapeHtml(code) + '</code></pre><p><br></p>');
             }
         }
 
-        // Sync editor content to hidden input before submit
+        function cleanContent(html) {
+            html = html.replace(/\s*data-path-to-node="[^"]*"/g, '');
+            html = html.replace(/\s*data-index-in-node="[^"]*"/g, '');
+            html = html.replace(/\s*style=""/g, '');
+            return html;
+        }
+
         document.querySelector('form').addEventListener('submit', function() {
-            document.getElementById('content-hidden').value = document.getElementById('editor').innerHTML;
+            document.getElementById('content-hidden').value = cleanContent(document.getElementById('editor').innerHTML);
         });
     </script>
 
