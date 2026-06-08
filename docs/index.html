@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FYANZ XDEV</title>
+    <!-- Vite Asset Bundler Laravel -->
+    <link rel="preload" as="style" href="build/assets/app-DWgOFcOM.css" /><link rel="modulepreload" as="script" href="build/assets/app-BvRk9kiK.js" /><link rel="stylesheet" href="build/assets/app-DWgOFcOM.css" /><script type="module" src="build/assets/app-BvRk9kiK.js"></script>    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-black text-white selection:bg-neutral-800 selection:text-white overflow-x-hidden">
+
+    <!-- Memanggil Komponen Navbar -->
+    <header id="navbar-header" class="relative w-full bg-black border-b border-neutral-900 sticky top-0 z-50 px-6 py-4 transition-all duration-300 ease-in-out text-white">
+    <div class="w-full px-6 md:px-10 flex items-center justify-between">
+
+        <div class="flex items-center gap-8">
+            <button id="logo-trigger" class="flex items-center gap-3 cursor-pointer select-none group focus:outline-none">
+                <img src="images/Logo.png" id="logo-default" alt="FYANZ XDEV" class="h-8 w-auto object-contain block group-hover:hidden">
+                <img src="images/logoextended.png" id="logo-extended" alt="FYANZ XDEV" class="h-8 w-auto object-contain hidden group-hover:block">
+            </button>
+
+            <nav id="nav-links" class="hidden md:flex items-center gap-2 font-mono text-xs tracking-widest">
+                <a href="#home" data-nav="home" class="nav-link px-4 py-2 text-neutral-400 hover:text-white transition-colors duration-200">HOME</a>
+                <a href="#about" data-nav="about" class="nav-link px-4 py-2 text-neutral-400 hover:text-white transition-colors duration-200">ABOUT</a>
+                <a href="#article" data-nav="article" class="nav-link px-4 py-2 text-neutral-400 hover:text-white transition-colors duration-200">ARTICLE</a>
+                <a href="#apps" data-nav="apps" class="nav-link px-4 py-2 text-neutral-400 hover:text-white transition-colors duration-200">APPS</a>
+                <a href="#contacts" data-nav="contacts" class="nav-link px-4 py-2 text-neutral-400 hover:text-white transition-colors duration-200">CONTACTS</a>
+            </nav>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <button id="globe-btn" class="text-neutral-400 hover:text-white transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                </svg>
+            </button>
+
+            <div id="search-box" class="relative hidden sm:block">
+                <input type="text" placeholder="SEARCH .." class="bg-neutral-900 text-xs border border-neutral-800 rounded-sm py-1.5 pl-4 pr-10 focus:outline-none focus:border-neutral-700 text-white font-mono w-40 transition-colors">
+                <span class="absolute right-3 top-2 text-neutral-500 text-xs">🔍</span>
+            </div>
+
+            <button id="hover-search-btn" class="hidden text-neutral-500 hover:text-[#ff0055] transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- ================= MEGA MENU ================= -->
+        <div id="dropdown-menu" class="absolute left-0 top-full w-full bg-[#111111] text-white border-t border-white/5 shadow-2xl z-50 hidden">
+            <div class="max-w-7xl mx-auto px-12 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+                <!-- ARTICLES -->
+                <div class="flex flex-col">
+                    <span class="text-[#ff0055] text-xs font-mono font-black tracking-[0.2em] mb-4 border-b border-white/5 pb-2 uppercase">
+                        // ARTICLE
+                    </span>
+                    <ul class="flex flex-col gap-3">
+                                                    <li>
+                                <a href="#article" class="mega-item text-neutral-400 hover:text-white hover:translate-x-1 transition-all font-mono text-xs tracking-wider uppercase flex items-center gap-2"
+                                   data-image="/storage/uploads/WjVnZZnMWr1TqNJxLmL1pZspjCxHz8vWmc8HXNcy.png">
+                                    <span>&middot;</span> Menjinakkan Hyprland di Kali L...
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+
+                <!-- PROJECTS -->
+                <div class="flex flex-col">
+                    <span class="text-[#ff0055] text-xs font-mono font-black tracking-[0.2em] mb-4 border-b border-white/5 pb-2 uppercase">
+                        // APPS & PROJECTS
+                    </span>
+                    <ul class="flex flex-col gap-3">
+                                                    <li>
+                                <a href="#apps" class="mega-item text-neutral-400 hover:text-white hover:translate-x-1 transition-all font-mono text-xs tracking-wider uppercase flex items-center gap-2"
+                                   data-image="/storage/uploads/NYLjQHsPIblhOfmDCNV8pdPbIFg4H1oZ74Vjb8me.png">
+                                    <span>&middot;</span> SIMS
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="https://github.com/Fianisme/sabergameAI.git" class="mega-item text-neutral-400 hover:text-white hover:translate-x-1 transition-all font-mono text-xs tracking-wider uppercase flex items-center gap-2"
+                                   data-image="/storage/uploads/9HRaly9VDCUsTAVGsDZHlOtvVwXfZo6hEHsO67eX.png">
+                                    <span>&middot;</span> SABERGAME AI
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+
+                <!-- CERTIFICATES -->
+                <div class="flex flex-col">
+                    <span class="text-[#ff0055] text-xs font-mono font-black tracking-[0.2em] mb-4 border-b border-white/5 pb-2 uppercase">
+                        // CREDENTIALS
+                    </span>
+                    <ul class="flex flex-col gap-3">
+                                                    <li>
+                                <a href="#certificates" class="mega-item text-neutral-400 hover:text-white hover:translate-x-1 transition-all font-mono text-xs tracking-wider uppercase flex items-center gap-2"
+                                   data-image="/storage/uploads/fCheIIeXAZ4tQeKg8zwo6c1tyKNg9dCuHzTPUIHo.jpg">
+                                    <span>&middot;</span> IGNITE//CYBERSECURITY
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+
+                <!-- PREVIEW PANEL (Kanan) -->
+                <div class="bg-neutral-900/50 border border-white/5 p-6 flex flex-col justify-between min-h-[200px] tech-nav-clip overflow-hidden relative">
+                    <div class="font-mono text-[10px] text-neutral-600 uppercase tracking-widest relative z-10">// PREVIEW_SYSTEM</div>
+
+                    <!-- Default State -->
+                    <div id="mega-preview-default" class="text-center py-6 relative z-10">
+                        <span class="text-[10px] font-mono text-neutral-500 tracking-wider uppercase block">Hover items</span>
+                        <span class="text-[9px] font-mono text-[#ff0055] uppercase block mt-1">To preview_</span>
+                    </div>
+
+                    <!-- Preview Image (Hidden by default) -->
+                    <div id="mega-preview-image" class="absolute inset-0 opacity-0 transition-opacity duration-300">
+                        <img src="" alt="Preview" class="w-full h-full object-cover opacity-40">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent"></div>
+                    </div>
+
+                    <div class="w-full h-1 bg-neutral-800 relative overflow-hidden mt-auto z-10">
+                        <div class="absolute inset-y-0 left-0 w-1/3 bg-[#ff0055]"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<style>
+    @keyframes dropdownOpen {
+        from { opacity: 0; transform: scaleY(0.95) translateY(-10px); }
+        to   { opacity: 1; transform: scaleY(1) translateY(0); }
+    }
+    @keyframes dropdownClose {
+        from { opacity: 1; transform: scaleY(1) translateY(0); }
+        to   { opacity: 0; transform: scaleY(0.95) translateY(-10px); }
+    }
+    .dropdown-open {
+        animation: dropdownOpen 0.25s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        transform-origin: top;
+    }
+    .dropdown-close {
+        animation: dropdownClose 0.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        transform-origin: top;
+    }
+
+    .tech-nav-clip {
+        clip-path: polygon(0 0, 92% 0, 100% 10%, 100% 100%, 0 100%);
+    }
+
+    .header-active-state {
+        background-color: #1a1a1a !important;
+        border-color: rgba(255, 255, 255, 0.05) !important;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const logoTrigger = document.getElementById('logo-trigger');
+        const header = document.getElementById('navbar-header');
+        const globeBtn = document.getElementById('globe-btn');
+        const searchBox = document.getElementById('search-box');
+        const hoverSearchBtn = document.getElementById('hover-search-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const logoDefault = document.getElementById('logo-default');
+        const logoExtended = document.getElementById('logo-extended');
+        const previewDefault = document.getElementById('mega-preview-default');
+        const previewImage = document.getElementById('mega-preview-image');
+        const previewImg = previewImage.querySelector('img');
+
+        // Logo click toggle
+        logoTrigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            const isOpen = !dropdownMenu.classList.contains('hidden');
+
+            if (isOpen) {
+                dropdownMenu.classList.remove('dropdown-open');
+                dropdownMenu.classList.add('dropdown-close');
+                setTimeout(function () {
+                    dropdownMenu.classList.add('hidden');
+                    dropdownMenu.classList.remove('dropdown-close');
+                }, 200);
+                header.classList.remove('header-active-state');
+                logoDefault.classList.remove('!hidden');
+                logoExtended.classList.remove('!block');
+                globeBtn.classList.remove('hidden');
+                searchBox.classList.remove('hidden');
+                hoverSearchBtn.classList.add('hidden');
+            } else {
+                dropdownMenu.classList.remove('hidden');
+                dropdownMenu.classList.remove('dropdown-close');
+                dropdownMenu.classList.add('dropdown-open');
+                header.classList.add('header-active-state');
+                logoDefault.classList.add('!hidden');
+                logoExtended.classList.add('!block');
+                globeBtn.classList.add('hidden');
+                searchBox.classList.add('hidden');
+                hoverSearchBtn.classList.remove('hidden');
+            }
+        });
+
+        // Hover preview for mega menu items
+        document.querySelectorAll('.mega-item').forEach(function(item) {
+            item.addEventListener('mouseenter', function() {
+                const imageUrl = this.getAttribute('data-image');
+                if (imageUrl) {
+                    previewImg.src = imageUrl;
+                    previewDefault.style.display = 'none';
+                    previewImage.style.opacity = '1';
+                }
+            });
+
+            item.addEventListener('mouseleave', function() {
+                previewImage.style.opacity = '0';
+                previewDefault.style.display = 'block';
+            });
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('.nav-link').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetId = this.getAttribute('href').substring(1);
+                var target = document.getElementById(targetId);
+                if (target) {
+                    var offset = header.offsetHeight + 16;
+                    var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+
+                    // Close dropdown if open
+                    if (!dropdownMenu.classList.contains('hidden')) {
+                        dropdownMenu.classList.remove('dropdown-open');
+                        dropdownMenu.classList.add('dropdown-close');
+                        setTimeout(function () {
+                            dropdownMenu.classList.add('hidden');
+                            dropdownMenu.classList.remove('dropdown-close');
+                        }, 200);
+                        header.classList.remove('header-active-state');
+                        logoDefault.classList.remove('!hidden');
+                        logoExtended.classList.remove('!block');
+                        globeBtn.classList.remove('hidden');
+                        searchBox.classList.remove('hidden');
+                        hoverSearchBtn.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Active state on scroll
+        var sections = ['home', 'about', 'article', 'apps', 'certificates', 'contacts'];
+        var navLinks = document.querySelectorAll('.nav-link');
+
+        function updateActiveNav() {
+            var scrollPos = window.scrollY + header.offsetHeight + 100;
+            sections.forEach(function(id) {
+                var section = document.getElementById(id);
+                if (!section) return;
+                var top = section.offsetTop;
+                var bottom = top + section.offsetHeight;
+                navLinks.forEach(function(link) {
+                    if (link.getAttribute('data-nav') === id) {
+                        if (scrollPos >= top && scrollPos < bottom) {
+                            link.classList.add('text-white', 'font-bold', 'border-b-2', 'border-[#ff0055]');
+                            link.classList.remove('text-neutral-400');
+                        } else {
+                            link.classList.remove('text-white', 'font-bold', 'border-b-2', 'border-[#ff0055]');
+                            link.classList.add('text-neutral-400');
+                        }
+                    }
+                });
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+    });
+</script>
+
+    <!-- Area Konten Utama -->
+    <main>
+        <section id="home" class="relative w-full h-[85vh] md:h-screen bg-[#060709] overflow-hidden flex flex-col items-center justify-center border-b border-white/5">
+    
+<div class="absolute bottom-0 left-0 w-full h-[35vh] md:h-[45vh] flex items-end justify-between px-0 opacity-25 pointer-events-none z-0 mix-blend-screen overflow-hidden">
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1015ms; animation-delay: -797ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 898ms; animation-delay: -584ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1479ms; animation-delay: -157ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1349ms; animation-delay: -607ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 778ms; animation-delay: -144ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1081ms; animation-delay: -95ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 880ms; animation-delay: -366ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1274ms; animation-delay: -653ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 727ms; animation-delay: -203ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1368ms; animation-delay: -365ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1351ms; animation-delay: -687ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 888ms; animation-delay: -403ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 737ms; animation-delay: -329ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 833ms; animation-delay: -308ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1355ms; animation-delay: -765ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 808ms; animation-delay: -106ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 857ms; animation-delay: -655ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 927ms; animation-delay: -41ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1359ms; animation-delay: -488ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1077ms; animation-delay: -209ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 964ms; animation-delay: -489ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 914ms; animation-delay: -892ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 998ms; animation-delay: -105ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 808ms; animation-delay: -757ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1479ms; animation-delay: -418ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1089ms; animation-delay: -75ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1165ms; animation-delay: -117ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1323ms; animation-delay: -61ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1052ms; animation-delay: -179ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1141ms; animation-delay: -983ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1215ms; animation-delay: -907ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1475ms; animation-delay: -786ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 907ms; animation-delay: -323ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1183ms; animation-delay: -931ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 814ms; animation-delay: -462ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1187ms; animation-delay: -511ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1396ms; animation-delay: -346ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 883ms; animation-delay: -923ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 701ms; animation-delay: -26ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 983ms; animation-delay: -114ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1186ms; animation-delay: -505ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1400ms; animation-delay: -118ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 824ms; animation-delay: -118ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 994ms; animation-delay: -698ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 855ms; animation-delay: -933ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1032ms; animation-delay: -781ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 873ms; animation-delay: -242ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1207ms; animation-delay: -870ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1175ms; animation-delay: -332ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 991ms; animation-delay: -952ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 874ms; animation-delay: -234ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1331ms; animation-delay: -11ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 952ms; animation-delay: -0ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 752ms; animation-delay: -168ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1391ms; animation-delay: -549ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1218ms; animation-delay: -29ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 763ms; animation-delay: -895ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1063ms; animation-delay: -441ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 852ms; animation-delay: -792ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1352ms; animation-delay: -290ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1433ms; animation-delay: -703ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1033ms; animation-delay: -115ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 719ms; animation-delay: -79ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 811ms; animation-delay: -331ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1357ms; animation-delay: -920ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 816ms; animation-delay: -992ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1051ms; animation-delay: -840ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1179ms; animation-delay: -152ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1431ms; animation-delay: -286ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 866ms; animation-delay: -735ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1176ms; animation-delay: -837ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 983ms; animation-delay: -1ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 751ms; animation-delay: -804ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1230ms; animation-delay: -584ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1344ms; animation-delay: -609ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 889ms; animation-delay: -139ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 802ms; animation-delay: -628ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 806ms; animation-delay: -782ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 976ms; animation-delay: -555ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 980ms; animation-delay: -996ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1327ms; animation-delay: -89ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 942ms; animation-delay: -274ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 876ms; animation-delay: -967ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1391ms; animation-delay: -313ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 746ms; animation-delay: -90ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1114ms; animation-delay: -590ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1305ms; animation-delay: -141ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 775ms; animation-delay: -257ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1084ms; animation-delay: -338ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1252ms; animation-delay: -746ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1022ms; animation-delay: -483ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1200ms; animation-delay: -351ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 754ms; animation-delay: -278ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1451ms; animation-delay: -389ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1404ms; animation-delay: -971ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1330ms; animation-delay: -510ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1483ms; animation-delay: -671ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1181ms; animation-delay: -668ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1371ms; animation-delay: -641ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1109ms; animation-delay: -305ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 934ms; animation-delay: -77ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 986ms; animation-delay: -926ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1202ms; animation-delay: -447ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1214ms; animation-delay: -488ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 808ms; animation-delay: -520ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1355ms; animation-delay: -951ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1240ms; animation-delay: -217ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1213ms; animation-delay: -479ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1410ms; animation-delay: -870ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1479ms; animation-delay: -412ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 929ms; animation-delay: -181ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1481ms; animation-delay: -95ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 818ms; animation-delay: -976ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1216ms; animation-delay: -82ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1446ms; animation-delay: -118ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1304ms; animation-delay: -147ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 853ms; animation-delay: -426ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1306ms; animation-delay: -980ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 893ms; animation-delay: -65ms;">
+        </div>
+            <div class="cava-bar flex-1 min-w-[2px] max-w-[6px] h-full bg-gradient-to-t from-[#FF0000] via-[#FF0000]/60 to-transparent rounded-t-[1px]" 
+             style="animation-duration: 1018ms; animation-delay: -976ms;">
+        </div>
+    </div>
+
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#060709_90%)] pointer-events-none z-10"></div>
+
+
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.4)_50%)] bg-[length:100%_4px] pointer-events-none z-10"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none z-0"></div>
+
+
+    <div class="absolute inset-4 md:inset-8 border border-white/[0.02] pointer-events-none z-20 flex flex-col justify-between p-4">
+        <div class="flex justify-between w-full">
+            <div class="w-4 h-4 border-t border-l border-[#FF0000]/30"></div>
+            <div class="font-mono text-[8px] text-neutral-700 tracking-widest">// CORE_WAVE_SIGNAL_STABLE</div>
+            <div class="w-4 h-4 border-t border-r border-white/10"></div>
+        </div>
+        <div class="flex justify-between w-full items-end">
+            <div class="w-4 h-4 border-b border-l border-white/10"></div>
+            <div class="w-4 h-4 border-b border-r border-[#FF0000]/20"></div>
+        </div>
+    </div>
+
+
+    <div class="relative z-20 text-center px-6 flex flex-col items-center justify-center max-w-2xl">
+        
+        <div class="mb-5 flex items-center gap-2 px-3 py-1 bg-neutral-900/60 border border-white/5 rounded-sm font-mono text-[9px] tracking-[0.2em] text-[#FF0000] uppercase select-none">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#FF0000] animate-ping"></span> LOG_STREAM: CONNECTED //
+        </div>
+
+        <div class="relative group cursor-pointer select-none my-3">
+            <img src="images/clearimage.png" 
+                 alt="Glitch Red" 
+                 class="h-20 sm:h-24 md:h-32 w-auto object-contain absolute top-[3px] left-[3px] opacity-60 mix-blend-screen filter drop-shadow-[0_0_15px_#FF0000] animate-pulse" 
+                 style="animation-duration: 0.15s">
+            
+            <img src="images/clearimage.png" 
+                 alt="Glitch Cyan" 
+                 class="h-20 sm:h-24 md:h-32 w-auto object-contain absolute -top-[3px] -left-[3px] opacity-40 mix-blend-screen filter drop-shadow-[0_0_20px_#00e5ff] animate-ping" 
+                 style="animation-duration: 3s">
+            
+            <img src="images/clearimage.png" 
+                 alt="FYANZ XDEV LOGO" 
+                 class="h-20 sm:h-24 md:h-32 w-auto object-contain relative z-10 filter drop-shadow-[0_0_25px_rgba(255,255,255,0.1)] group-hover:scale-105 transition-transform duration-300">
+        </div>
+
+        <h2 class="text-white font-mono font-black text-xl md:text-2xl tracking-[0.3em] uppercase mt-4">
+            FYANZ XDEV_
+        </h2>
+
+        <p class="text-neutral-500 font-mono mt-3 text-[10px] md:text-xs tracking-[0.2em] uppercase max-w-md leading-relaxed">
+            Forging high-performance web architectures &amp; edgy digital solutions.
+        </p>
+
+        <div class="mt-10 relative group/btn">
+            <div class="absolute inset-0 bg-[#FF0000] opacity-20 blur-sm group-hover/btn:opacity-40 transition-opacity pointer-events-none hero-btn-clip"></div>
+            <a href="#explore" class="relative inline-block bg-[#FF0000] hover:bg-[#cc0000] text-white font-mono font-black text-xs tracking-[0.25em] uppercase px-10 py-4 transition-colors hero-btn-clip">
+                EXPLORE PROJECTS //
+            </a>
+        </div>
+    </div>
+
+
+    <div class="absolute bottom-8 left-10 right-10 z-20 flex justify-between items-center font-mono text-[9px] text-neutral-600 tracking-[0.3em] uppercase select-none hidden sm:flex border-t border-white/5 pt-4">
+        <div class="flex items-center gap-3">
+            <span class="inline-block w-1.5 h-1.5 bg-[#FF0000] animate-pulse"></span>
+            <span>SYSTEM_LOG // ACCESS_GRANTED</span>
+        </div>
+        <div class="flex items-center gap-6">
+            <span>NET_STATUS // SECURE</span>
+            <span>LOC_IDX // 2026_MNG</span>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Animasi Naik Turun Acak ala Cava Hyprland */
+    @keyframes cavaWave {
+        0%, 100% { transform: scaleY(0.03); }
+        50%      { transform: scaleY(1); }
+    }
+
+    .cava-bar {
+        animation-name: cavaWave;
+        animation-iteration-count: infinite;
+        animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+        transform-origin: bottom;
+    }
+
+    .hero-btn-clip {
+        clip-path: polygon(0 0, 85% 0, 100% 35%, 100% 100%, 15% 100%, 0 65%);
+    }
+</style>    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<section id="about" class="bg-[#0b0c10] py-20 border-t border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-4">
+            <h2 class="text-2xl md:text-3xl font-mono font-black text-white tracking-[0.15em] uppercase flex items-center gap-3">
+                <span class="w-2 h-6 bg-[#ff0055]"></span> ABOUT_ME //
+            </h2>
+            <div class="font-mono text-[10px] text-neutral-600 tracking-widest">SYS_ID // 001</div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- Kiri: Photo + Basic Info -->
+            <div class="lg:col-span-4">
+                <div class="relative group">
+                    <!-- Glow Effect -->
+                    <div class="absolute -inset-1 bg-gradient-to-br from-[#ff0055] to-[#00ffcc] opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-500"></div>
+
+                    <!-- Photo Card -->
+                    <div class="relative bg-[#12141c] border border-white/10 p-4 group-hover:border-[#ff0055]/30 transition-colors duration-300">
+                        <!-- Corner Decorations -->
+                        <div class="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#ff0055]"></div>
+                        <div class="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#00ffcc]"></div>
+
+                        <!-- Photo -->
+                        <div class="aspect-square bg-neutral-900 mb-4 overflow-hidden">
+                                                            <div class="w-full h-full flex items-center justify-center">
+                                    <span class="text-6xl font-mono font-black text-neutral-800">FX</span>
+                                </div>
+                                                    </div>
+
+                        <!-- Name & Status -->
+                        <div class="space-y-2">
+                            <h3 class="text-white font-mono font-black text-lg tracking-wider uppercase">
+                                FYANZ XDEV
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 bg-green-500 animate-pulse rounded-full"></span>
+                                <span class="text-xs font-mono text-green-400 tracking-wider">AVAILABLE FOR WORK</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-2 gap-3 mt-4">
+                    <div class="bg-[#12141c] border border-white/5 p-4 text-center">
+                        <div class="text-2xl font-mono font-black text-[#ff0055]">2+</div>
+                        <div class="text-[10px] font-mono text-neutral-500 tracking-wider uppercase mt-1">Years Exp</div>
+                    </div>
+                    <div class="bg-[#12141c] border border-white/5 p-4 text-center">
+                        <div class="text-2xl font-mono font-black text-[#00ffcc]">5+</div>
+                        <div class="text-[10px] font-mono text-neutral-500 tracking-wider uppercase mt-1">Projects</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kanan: Bio & Skills -->
+            <div class="lg:col-span-8 space-y-8">
+
+                <!-- Bio -->
+                <div class="bg-[#12141c] border border-white/10 p-6 relative">
+                    <div class="absolute top-0 right-0 px-3 py-1 bg-[#ff0055]/10 border-l border-b border-[#ff0055]/20">
+                        <span class="text-[9px] font-mono text-[#ff0055] tracking-widest">BIO_DATA</span>
+                    </div>
+
+                    <div class="font-mono text-sm text-neutral-300 leading-relaxed space-y-4">
+                        <p>
+                            <span class="text-[#ff0055]">&gt;</span> Passionate web developer specializing in modern web architectures. Focused on building high-performance, scalable applications with clean code and exceptional user experiences.
+                        </p>
+                        <p>
+                            <span class="text-[#00ffcc]">&gt;</span> Experienced in full-stack development with expertise in Laravel, React, Vue.js, and various modern frameworks. Committed to writing maintainable code and implementing best practices.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div>
+                    <h3 class="text-xs font-mono font-bold text-neutral-500 tracking-widest uppercase mb-4 flex items-center gap-2">
+                        <span class="w-1 h-4 bg-[#00ffcc]"></span> TECH_STACK //
+                    </h3>
+
+                    <div class="flex flex-wrap gap-2">
+                                                    <span class="px-3 py-1.5 bg-[#12141c] border border-white/5 hover:border-white/10 text-xs font-mono text-neutral-300 tracking-wider transition-colors"
+                                  style="border-left: 2px solid #ff0055;">
+                                Laravel
+                            </span>
+                                                    <span class="px-3 py-1.5 bg-[#12141c] border border-white/5 hover:border-white/10 text-xs font-mono text-neutral-300 tracking-wider transition-colors"
+                                  style="border-left: 2px solid #00ffcc;">
+                                React
+                            </span>
+                                                    <span class="px-3 py-1.5 bg-[#12141c] border border-white/5 hover:border-white/10 text-xs font-mono text-neutral-300 tracking-wider transition-colors"
+                                  style="border-left: 2px solid #00e5ff;">
+                                Vue.js
+                            </span>
+                                                    <span class="px-3 py-1.5 bg-[#12141c] border border-white/5 hover:border-white/10 text-xs font-mono text-neutral-300 tracking-wider transition-colors"
+                                  style="border-left: 2px solid #9d00ff;">
+                                Node.js
+                            </span>
+                                                    <span class="px-3 py-1.5 bg-[#12141c] border border-white/5 hover:border-white/10 text-xs font-mono text-neutral-300 tracking-wider transition-colors"
+                                  style="border-left: 2px solid #ff0055;">
+                                TypeScript
+                            </span>
+                                                    <span class="px-3 py-1.5 bg-[#12141c] border border-white/5 hover:border-white/10 text-xs font-mono text-neutral-300 tracking-wider transition-colors"
+                                  style="border-left: 2px solid #00ffcc;">
+                                MySQL
+                            </span>
+                                                    <span class="px-3 py-1.5 bg-[#12141c] border border-white/5 hover:border-white/10 text-xs font-mono text-neutral-300 tracking-wider transition-colors"
+                                  style="border-left: 2px solid #00e5ff;">
+                                Docker
+                            </span>
+                                                    <span class="px-3 py-1.5 bg-[#12141c] border border-white/5 hover:border-white/10 text-xs font-mono text-neutral-300 tracking-wider transition-colors"
+                                  style="border-left: 2px solid #9d00ff;">
+                                Tailwind
+                            </span>
+                                            </div>
+                </div>
+
+                <!-- Contact Quick Links -->
+                <div class="flex flex-wrap gap-3">
+                    
+                    <!-- Contact Me -->
+                    <a href="#contacts" class="px-4 py-2 bg-[#ff0055] hover:bg-[#cc0044] font-mono text-xs tracking-wider uppercase transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-envelope"></i> Contact Me
+                    </a>
+
+                    <!-- Download CV -->
+                    
+                    <!-- GitHub -->
+                                            <a href="https://github.com/Fianisme" target="_blank" class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 font-mono text-xs tracking-wider uppercase transition-colors flex items-center gap-2">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                    
+                    <!-- LinkedIn -->
+                                            <a href="https://www.linkedin.com/in/fianisme/" target="_blank" class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 font-mono text-xs tracking-wider uppercase transition-colors flex items-center gap-2">
+                            <i class="fa-brands fa-linkedin"></i> LinkedIn
+                        </a>
+                    
+                    <!-- Instagram -->
+                                            <a href="https://instagram.com/vrexaver" target="_blank" class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 font-mono text-xs tracking-wider uppercase transition-colors flex items-center gap-2">
+                            <i class="fa-brands fa-instagram"></i> Instagram
+                        </a>
+                    
+                    <!-- Email -->
+                                            <a href="mailto:alfianb.hamdan@gmail.com" class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 font-mono text-xs tracking-wider uppercase transition-colors flex items-center gap-2">
+                            <i class="fa-solid fa-at"></i> Email
+                        </a>
+                                    </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+    <section id="article" class="bg-[#0b0c10] py-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex items-center justify-between mb-10 border-b border-white/10 pb-4">
+            <h2 class="text-2xl md:text-3xl font-mono font-black text-white tracking-[0.15em] uppercase flex items-center gap-3">
+                <span class="w-2 h-6 bg-[#ff0055]"></span> WHAT'S HAPPENING //
+            </h2>
+            <a href="#" class="text-xs font-mono font-bold text-neutral-400 hover:text-[#ff0055] tracking-widest uppercase transition-colors border border-neutral-700 px-4 py-2 bg-neutral-900/50">
+                See More_
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                                            <a href="article/1.html" class="lg:col-span-7 group cursor-pointer relative block">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-[#ff0055] to-[#00ffcc] opacity-0 group-hover:opacity-20 blur-md transition-opacity duration-300 pointer-events-none"></div>
+
+                    <div class="relative aspect-[16/10] bg-[#12141c] border border-white/10 tech-clip p-3 transition-colors duration-300 group-hover:border-[#ff0055]/50">
+                        <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#ff0055] pointer-events-none z-20"></div>
+                        <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#00ffcc] pointer-events-none z-20"></div>
+
+                        <div class="w-full h-full bg-gradient-to-br from-[#1c1e29] to-[#12141c] flex flex-col justify-between p-6 relative overflow-hidden tech-clip-inner">
+                                                            <img src="storage/uploads/WjVnZZnMWr1TqNJxLmL1pZspjCxHz8vWmc8HXNcy.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30">
+                                                        <div class="relative z-10 flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 bg-[#ff0055]"></span>
+                                <span class="text-[10px] font-mono font-bold tracking-widest text-[#ff0055] uppercase">FEATURED // SoL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 px-1">
+                        <h3 class="text-white text-xl md:text-3xl font-mono font-black tracking-wide leading-tight group-hover:text-[#ff0055] transition-colors duration-300 uppercase">
+                            Menjinakkan Hyprland di Kali Linux: Catatan Ngoprek Setelan Bar, SDDM, hingga Skrip Baterai Custom
+                        </h3>
+                    </div>
+                </a>
+            
+            <div class="lg:col-span-5 flex flex-col gap-4">
+                                    <div class="text-neutral-500 text-sm py-10">No articles yet.</div>
+                            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .tech-clip {
+        clip-path: polygon(0 0, 93% 0, 100% 10%, 100% 100%, 7% 100%, 0 90%);
+    }
+    .tech-clip-inner {
+        clip-path: polygon(0 0, 93% 0, 100% 10%, 100% 100%, 7% 100%, 0 90%);
+    }
+    .tech-clip-sm {
+        clip-path: polygon(0 0, 88% 0, 100% 15%, 100% 100%, 12% 100%, 0 85%);
+    }
+    .tech-clip-inner-sm {
+        clip-path: polygon(0 0, 88% 0, 100% 15%, 100% 100%, 12% 100%, 0 85%);
+    }
+</style>
+    <section id="apps" class="bg-[#0b0c10] py-20 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-2xl md:text-3xl font-mono font-black text-white tracking-[0.15em] uppercase flex items-center gap-3">
+            <span class="w-2 h-6 bg-[#ff0055]"></span> APPS & PROJECTS //
+        </h2>
+
+        <div class="embla relative">
+            <div class="embla__container flex gap-2 overflow-x-auto pb-12 snap-x snap-mandatory scrollbar-hide select-none">
+
+                
+                                                        <div class="embla__slide flex-shrink-0 snap-center w-[220px] md:w-[280px] lg:w-[320px] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] hover:w-[350px] md:hover:w-[420px] group">
+                        <div class="trapezoid-card relative cursor-pointer h-[450px] md:h-[550px]">
+                            <div class="absolute inset-0 trapezoid-clip opacity-40 group-hover:opacity-100 group-hover:blur-[2px] transition-all duration-500" style="background-color: #00ffcc"></div>
+                            <div class="trapezoid-card__inner absolute inset-[2px] bg-[#12141c] trapezoid-clip flex flex-col justify-between p-6 transition-all duration-500 overflow-hidden">
+                                <!-- Background Image -->
+                                                                    <img src="storage/uploads/NYLjQHsPIblhOfmDCNV8pdPbIFg4H1oZ74Vjb8me.png" alt="SIMS"
+                                        class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all duration-700">
+                                
+                                <div class="relative z-10 flex justify-between items-center opacity-40 group-hover:opacity-100 transition-opacity">
+                                    <span class="font-mono text-[10px] text-white tracking-widest">SYS_SRC // 01</span>
+                                    <div class="w-2 h-2 animate-pulse" style="background-color: #00ffcc"></div>
+                                </div>
+                                <div class="relative z-10">
+                                    <h3 class="text-white font-mono font-black text-xl md:text-2xl tracking-wider mb-4" style="text-shadow: 0 2px 10px rgba(0,0,0,0.8)">
+                                        SIMS
+                                    </h3>
+                                    <div class="flex flex-wrap gap-2">
+                                                                                    <span class="px-2 py-1 bg-black/50 backdrop-blur-sm border border-white/10 rounded-sm text-[10px] font-mono text-white/70 uppercase tracking-wider">Laravel</span>
+                                                                                    <span class="px-2 py-1 bg-black/50 backdrop-blur-sm border border-white/10 rounded-sm text-[10px] font-mono text-white/70 uppercase tracking-wider">React</span>
+                                                                                    <span class="px-2 py-1 bg-black/50 backdrop-blur-sm border border-white/10 rounded-sm text-[10px] font-mono text-white/70 uppercase tracking-wider">IOT</span>
+                                                                                    <span class="px-2 py-1 bg-black/50 backdrop-blur-sm border border-white/10 rounded-sm text-[10px] font-mono text-white/70 uppercase tracking-wider">ESP32</span>
+                                                                            </div>
+                                                                            <p class="text-neutral-400 text-xs font-mono mt-3 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            Smart Infusion Monitoring System; 
+Monitoring infus yang di desain untuk keamanan pasien dan mengindari human error
+                                        </p>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                                                        <div class="embla__slide flex-shrink-0 snap-center w-[220px] md:w-[280px] lg:w-[320px] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] hover:w-[350px] md:hover:w-[420px] group">
+                        <div class="trapezoid-card relative cursor-pointer h-[450px] md:h-[550px]">
+                            <div class="absolute inset-0 trapezoid-clip opacity-40 group-hover:opacity-100 group-hover:blur-[2px] transition-all duration-500" style="background-color: #ff0055"></div>
+                            <div class="trapezoid-card__inner absolute inset-[2px] bg-[#12141c] trapezoid-clip flex flex-col justify-between p-6 transition-all duration-500 overflow-hidden">
+                                <!-- Background Image -->
+                                                                    <img src="storage/uploads/9HRaly9VDCUsTAVGsDZHlOtvVwXfZo6hEHsO67eX.png" alt="SABERGAME AI"
+                                        class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all duration-700">
+                                
+                                <div class="relative z-10 flex justify-between items-center opacity-40 group-hover:opacity-100 transition-opacity">
+                                    <span class="font-mono text-[10px] text-white tracking-widest">SYS_SRC // 02</span>
+                                    <div class="w-2 h-2 animate-pulse" style="background-color: #ff0055"></div>
+                                </div>
+                                <div class="relative z-10">
+                                    <h3 class="text-white font-mono font-black text-xl md:text-2xl tracking-wider mb-4" style="text-shadow: 0 2px 10px rgba(0,0,0,0.8)">
+                                        SABERGAME AI
+                                    </h3>
+                                    <div class="flex flex-wrap gap-2">
+                                                                                    <span class="px-2 py-1 bg-black/50 backdrop-blur-sm border border-white/10 rounded-sm text-[10px] font-mono text-white/70 uppercase tracking-wider">Laravel</span>
+                                                                                    <span class="px-2 py-1 bg-black/50 backdrop-blur-sm border border-white/10 rounded-sm text-[10px] font-mono text-white/70 uppercase tracking-wider">Ollama</span>
+                                                                            </div>
+                                                                            <p class="text-neutral-400 text-xs font-mono mt-3 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            website persewaan konsol sabergame dengan bantuan AI chatbot sebagai navigassi website dan panduan pemesanan
+                                        </p>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .trapezoid-clip {
+        clip-path: polygon(12% 0%, 100% 0%, 88% 100%, 0% 100%);
+        transition: clip-path 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .group:hover .trapezoid-clip {
+        clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
+    <section id="certificates" class="bg-[#14151a] py-16 border-t border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex justify-between items-end mb-8">
+            <h2 class="text-2xl md:text-3xl font-mono font-black text-white tracking-wider uppercase">
+                CERTIFICATES
+            </h2>
+        </div>
+
+        <div class="flex gap-3 overflow-x-auto pb-8 pt-2 snap-x snap-mandatory scrollbar-hide">
+                                                <div class="flex-shrink-0 snap-start w-64 md:w-72 group cursor-pointer">
+                                    <div class="relative h-[180px] md:h-[200px] w-full">
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 blur-[2px] skew-clip transition-all duration-300"></div>
+                        <div class="absolute inset-[1px] bg-[#1c1e24] group-hover:bg-[#252830] skew-clip flex flex-col justify-between p-6 transition-colors duration-300 overflow-hidden">
+                                                            <img src="storage/uploads/fCheIIeXAZ4tQeKg8zwo6c1tyKNg9dCuHzTPUIHo.jpg" alt="IGNITE//CYBERSECURITY"
+                                    class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity">
+                            
+                            <div class="relative z-10 flex justify-between items-start opacity-40 group-hover:opacity-80 transition-opacity">
+                                <span class="font-mono text-[9px] text-white tracking-widest">CERT_ID // 01</span>
+                                <span class="font-mono text-[9px] text-[#00ffcc]">VERIFIED</span>
+                            </div>
+
+                            <div class="relative z-10 unskew-text mt-auto">
+                                <h3 class="text-white font-mono font-bold text-base md:text-lg tracking-wide leading-tight uppercase group-hover:text-[#00ffcc] transition-colors">
+                                    IGNITE//CYBERSECURITY
+                                </h3>
+                                <p class="text-neutral-500 font-mono text-[10px] mt-1 tracking-wider uppercase">
+                                    Kali Linux, SQL Injection, CTF • 2026
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                                    </div>
+                                    </div>
+    </div>
+</section>
+
+<style>
+    .skew-clip {
+        clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
+    }
+    .unskew-text {
+        transform: skewX(-4deg);
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
+    <section id="contacts" class="bg-[#0b0c10] py-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="relative bg-[#12141c] border border-white/10 min-h-[600px] grid grid-cols-1 lg:grid-cols-12 overflow-hidden tech-main-box">
+            
+            <div class="lg:col-span-5 relative min-h-[300px] lg:min-h-full bg-[#1c1e29] overflow-hidden lg:z-10 z-0 split-clip">
+                
+                <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
+                
+                <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center select-none">
+                    <div class="w-16 h-16 border-2 border-dashed border-neutral-700 flex items-center justify-center text-neutral-600 font-mono text-xl mb-3 animate-pulse">
+                        +
+                    </div>
+                    <span class="font-mono text-xs text-neutral-500 tracking-[0.2em] uppercase">LOCAL_IMAGE_ZONE // CONTACT_VISUAL</span>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 bg-[#eceef2] text-neutral-900 p-8 md:p-12 lg:pl-20 flex flex-col justify-center relative z-0">
+                
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                    <span class="font-mono text-xs font-bold tracking-wider text-emerald-700 uppercase">
+                        STATUS: AVAILABLE TO WORK //
+                    </span>
+                </div>
+
+                <h2 class="text-3xl md:text-4xl font-mono font-black tracking-tight text-neutral-950 uppercase mb-2">
+                    LET'S WORK TOGETHER_
+                </h2>
+                <p class="text-neutral-600 font-mono text-xs md:text-sm mb-8 max-w-xl">
+                    Drop a message to forge new digital architectures or just say hi.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-8 max-w-xl">
+                    <a href="https://github.com/Fianisme" target="_blank" class="bg-neutral-300/50 hover:bg-neutral-300/80 p-4 flex flex-col justify-between h-[90px] border border-neutral-400/20 transition-all duration-200 group">
+                        <span class="text-[10px] font-mono font-bold text-neutral-500 tracking-widest uppercase">// FIND ME ON</span>
+                        <span class="text-xl font-mono font-black text-neutral-900 tracking-wide mt-1 group-hover:text-neutral-950">GITHUB &rarr;</span>
+                    </a>
+                    
+                    <a href="https://linkedin.com" target="_blank" class="bg-neutral-300/50 hover:bg-neutral-300/80 p-4 flex flex-col justify-between h-[90px] border border-neutral-400/20 transition-all duration-200 group">
+                        <span class="text-[10px] font-mono font-bold text-neutral-500 tracking-widest uppercase">// CONNECT HERE</span>
+                        <span class="text-xl font-mono font-black text-neutral-900 tracking-wide mt-1 group-hover:text-neutral-950">LINKEDIN &rarr;</span>
+                    </a>
+                </div>
+
+                <form action="#" method="POST" class="space-y-4 max-w-xl w-full">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-mono text-[10px] font-bold text-neutral-500 uppercase mb-1">Your Name_</label>
+                            <input type="text" required class="w-full bg-white/80 border border-neutral-300 px-4 py-2.5 font-mono text-sm focus:outline-none focus:border-neutral-800 text-neutral-900 placeholder-neutral-400 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block font-mono text-[10px] font-bold text-neutral-500 uppercase mb-1">Email Address_</label>
+                            <input type="email" required class="w-full bg-white/80 border border-neutral-300 px-4 py-2.5 font-mono text-sm focus:outline-none focus:border-neutral-800 text-neutral-900 placeholder-neutral-400 transition-colors">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-mono text-[10px] font-bold text-neutral-500 uppercase mb-1">Message Body_</label>
+                        <textarea rows="4" required class="w-full bg-white/80 border border-neutral-300 px-4 py-2.5 font-mono text-sm focus:outline-none focus:border-neutral-800 text-neutral-900 placeholder-neutral-400 transition-colors resize-none"></textarea>
+                    </div>
+                    
+                    <div class="pt-2">
+                        <button type="submit" class="w-full md:w-auto bg-[#d23232] hover:bg-[#b82626] text-white font-mono font-bold px-8 py-3 text-sm uppercase tracking-widest transition-colors duration-200 shadow-md flex items-center justify-center gap-2 tech-btn-clip">
+                            Transmit Message //
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Induk kontainer utama dengan sedikit potongan mekanikal di sudut luar */
+    .tech-main-box {
+        clip-path: polygon(0 0, 98% 0, 100% 3%, 100% 100%, 2% 100%, 0 97%);
+    }
+
+    /* Efek Potongan Pembagi Layar Miring Vertikal (Riot Style)
+       Hanya aktif pada tampilan desktop (layar besar)
+    */
+    @media (min-width: 1024px) {
+        .split-clip {
+            /* Memotong sisi kanan agar condong masuk ke area putih form */
+            clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+        }
+    }
+
+    /* Potongan sudut dekoratif ujung tombol kirim pesan */
+    .tech-btn-clip {
+        clip-path: polygon(0 0, 94% 0, 100% 25%, 100% 100%, 6% 100%, 0 75%);
+    }
+</style>
+    </main>
+
+    <!-- Memanggil Komponen Footer -->
+    <footer class="bg-neutral-950 py-10 border-t border-neutral-900 text-center">
+    <p class="text-xs text-neutral-600 font-mono">
+        &copy; 2026 FYANZ XDEV. All rights reserved.
+    </p>
+</footer>
+</body>
+</html>
