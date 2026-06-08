@@ -53,11 +53,11 @@
                 <!-- Quick Stats -->
                 <div class="grid grid-cols-2 gap-3 mt-4">
                     <div class="bg-[#12141c] border border-white/5 p-4 text-center">
-                        <div class="text-2xl font-mono font-black text-[#ff0055]">3+</div>
+                        <div class="text-2xl font-mono font-black text-[#ff0055]">2+</div>
                         <div class="text-[10px] font-mono text-neutral-500 tracking-wider uppercase mt-1">Years Exp</div>
                     </div>
                     <div class="bg-[#12141c] border border-white/5 p-4 text-center">
-                        <div class="text-2xl font-mono font-black text-[#00ffcc]">10+</div>
+                        <div class="text-2xl font-mono font-black text-[#00ffcc]">5+</div>
                         <div class="text-[10px] font-mono text-neutral-500 tracking-wider uppercase mt-1">Projects</div>
                     </div>
                 </div>
