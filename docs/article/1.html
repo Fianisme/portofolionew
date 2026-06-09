@@ -286,7 +286,7 @@
         <div class="max-w-4xl mx-auto px-6">
 
             <!-- Back Link -->
-            <a href="../index.html#article" class="inline-flex items-center gap-2 text-neutral-400 hover:text-white font-mono text-xs tracking-wider mb-8 transition-colors">
+            <a href="../#article" class="inline-flex items-center gap-2 text-neutral-400 hover:text-white font-mono text-xs tracking-wider mb-8 transition-colors">
                 ← BACK TO ARTICLES
             </a>
 
@@ -320,7 +320,7 @@
                             <div class="mb-12 rounded-lg overflow-hidden border border-white/10 relative">
                     <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#ff0055] z-10"></div>
                     <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#00ffcc] z-10"></div>
-                    <img src="../storage/uploads/WjVnZZnMWr1TqNJxLmL1pZspjCxHz8vWmc8HXNcy.png" alt="Menjinakkan Hyprland di Kali Linux: Catatan Ngoprek Setelan Bar, SDDM, hingga Skrip Baterai Custom" class="w-full h-auto object-cover">
+                    <img src="storage/uploads/WjVnZZnMWr1TqNJxLmL1pZspjCxHz8vWmc8HXNcy.png" alt="Menjinakkan Hyprland di Kali Linux: Catatan Ngoprek Setelan Bar, SDDM, hingga Skrip Baterai Custom" class="w-full h-auto object-cover">
                 </div>
             
             <!-- Article Content -->
@@ -338,8 +338,63 @@
                             prose-ul:list-disc prose-ol:list-decimal
                             prose-li:mb-2
                             prose-img:rounded-lg prose-img:border prose-img:border-white/10">
-                    <p>Bagi para pencinta Linux, beralih ke <i>Window Manager</i> berbasis Wayland seperti <b>Hyprland</b> adalah sebuah kepuasan tersendiri. Namun, membangun ekosistem desktop yang estetik sekaligus fungsional dari nol bukanlah perkara mudah. Selalu ada drama <i>glitch</i>, config korup, hingga salah jalur <i>path</i> sistem.</p><p>Artikel ini merangkum catatan perjalanan dan tindakan teknis yang saya lakukan untuk membenahi beberapa fitur krusial di sistem Kali Linux bertenaga Hyprland saya.</p><p><br></p><h2>1. Drama Modifikasi SDDM (Layar Login)</h2><div><br></div><div><p>Perjalanan dimulai dari keinginan untuk mengganti tema layar login (SDDM) bawaan agar lebih estetik menggunakan tema populer <i>Sugar Candy</i>.</p><p><br></p><ul><li><p><b>Masalah:</b> Perintah <code>git clone</code> terus-menerus meminta autentikasi/password meskipun repositori tersebut publik. Upaya mengunduh paksa versi <code>.zip</code> via <code>curl</code> sempat gagal (korup) karena pemblokiran <i>User-Agent</i> dari sisi server. Selain itu, biner <code>sddm-greeter</code> di Kali Linux modern disembunyikan dari <code>$PATH</code> global (berada di <code>/usr/lib/sddm/sddm-greeter</code>).</p></li><li><p><br></p></li><li><p><b>Solusi Akhir:</b> Mengalihkan pilihan ke tema resmi yang stabil dan tersedia langsung di repositori Debian/Kali, yaitu <code>sddm-theme-breeze</code>. Tema ini diaktifkan secara bersih melalui konfigurasi terpusat di <code>/etc/sddm.conf.d/theme.conf</code>.</p></li></ul><div><br></div></div><h2>2. Menyelamatkan Waybar yang "Pingsan"</h2><div><p>Setelah melakukan proses <i>log out</i> sistem untuk menguji perubahan tema SDDM, panel status <b>Waybar</b> mendadak mati total dan menolak untuk menyala kembali.</p><ul><li><p><b>Masalah:</b> Saat dijalankan manual via terminal, muncul pesan error:</p><blockquote><p><code>Error parsing JSON: * Line 1, Column 1. Syntax error: value, object or array expected.</code></p></blockquote><p>Ternyata, sistem membaca sebuah file duplikat rusak bernama <code>config</code> (tanpa ekstensi) di direktori <code>~/.config/waybar/</code>, sehingga membuat proses <i>parsing</i> Waybar mengalami <i>crash</i>.</p></li><li><p><b>Solusi:</b> Menghapus file <code>config</code> yang korup tersebut, lalu membuat pintasan resmi (<i>symbolic link</i>) yang mengarah langsung ke file konfigurasi asli kita yang bersih (<code>config.jsonc</code>) menggunakan perintah:</p></li><li><pre><code>ln -s ~/.config/waybar/config.jsonc ~/.config/waybar/config<br></code><p><code><br></code></p></pre></li></ul><h2>3. Fitur Notifikasi Low Battery: Mengejar Kemudahan Backup<font color="#00ffcc" face="monospace"></font></h2></div><div>Kehilangan daya laptop secara tiba-tiba saat asyik bekerja di <b>Window Manager</b> minimalis adalah mimpi buruk. Solusinya adalah membuat fitur pengingat otomatis.</div><div><br></div><div>Awalnya fitur ini dibuat menggunakan skrip terpisah, namun demi kemudahan manajemen <i>dotfiles</i> (agar seluruh konfigurasi desktop bisa di-backup hanya dengan mengamankan <b>satu file tunggal</b> <code>hyprland.conf</code>), skrip tersebut dilebur menjadi satu perintah <i>inline</i>. Selain itu, jalur baterai juga disesuaikan dari <code>BAT0</code> ke <code>BAT1</code> mengikuti arsitektur hardware laptop.</div><div><p>Berikut adalah langkah penerapan dan kode yang digunakan:</p><ul><li><p><b>Langkah 1:</b> Membuka file konfigurasi utama Hyprland:</p></li><li><pre><code>nano ~/.config/hypr/hyprland.conf</code></pre></li></ul><div>&nbsp; &nbsp;<b>Langkah 2</b>: menambahkan blok kode <b>inline daemon</b> ini di baris paling bawah:</div></div><div><pre><code>exec-once = bash -c 'NOTIFIED_LOW=false; NOTIFIED_CRITICAL=false; while true; do BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT1/capacity); BATTERY_STATUS=$(cat /sys/class/power_supply/BAT1/status); if [ "$BATTERY_STATUS" = "Discharging" ]; then if [ "$BATTERY_LEVEL" -le 20 ] &amp;&amp; [ "$NOTIFIED_LOW" = false ]; then notify-send -u normal -i battery-low "Baterai Lemah!" "Sisa baterai tinggal $BATTERY_LEVEL%. Colok charger gih, Fian."; NOTIFIED_LOW=true; elif [ "$BATTERY_LEVEL" -le 10 ] &amp;&amp; [ "$NOTIFIED_CRITICAL" = false ]; then notify-send -u critical -i battery-empty "⚠️ BATERAI KRITIS! ⚠️" "Sisa baterai $BATTERY_LEVEL%! Laptop mau mati, buruan colok charger!"; NOTIFIED_CRITICAL=true; fi; else NOTIFIED_LOW=false; NOTIFIED_CRITICAL=false; fi; sleep 60; done'</code></pre></div><div>&nbsp; &nbsp;<b>Langkah 3 :&nbsp;</b>Menyalakan skrip secara instan di latar belakang tanpa perlu <i>restart</i> sistem:</div><div><pre><code>bash -c 'NOTIFIED_LOW=false; NOTIFIED_CRITICAL=false; while true; do BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT1/capacity); BATTERY_STATUS=$(cat /sys/class/power_supply/BAT1/status); if [ "$BATTERY_STATUS" = "Discharging" ]; then if [ "$BATTERY_LEVEL" -le 20 ] &amp;&amp; [ "$NOTIFIED_LOW" = false ]; then notify-send -u normal -i battery-low "Baterai Lemah!" "Sisa baterai tinggal $BATTERY_LEVEL%. Colok charger gih, Fian."; NOTIFIED_LOW=true; elif [ "$BATTERY_LEVEL" -le 10 ] &amp;&amp; [ "$NOTIFIED_CRITICAL" = false ]; then notify-send -u critical -i battery-empty "⚠️ BATERAI KRITIS! ⚠️" "Sisa baterai $BATTERY_LEVEL%! Laptop mau mati, buruan colok charger!"; NOTIFIED_CRITICAL=true; fi; else NOTIFIED_LOW=false; NOTIFIED_CRITICAL=false; fi; sleep 60; done' &amp;</code></pre><p><br></p><p>Kesimpulan &amp; Pelajaran yang Dipetik
-Ngoprek Linux bukan hanya soal mempercantik visual, tapi bagaimana menyelaraskan efisiensi sistem dengan kenyamanan alur kerja kita. Dengan menyatukan skrip krusial ke `hyprland.conf` dan menyuntikkan fungsi CLI ke `.zshrc`, proses pemeliharaan sistem ke depannya menjadi jauh lebih ringkas.<b>&nbsp;</b></p><p><b>Happy Ricing!</b></p></div>
+                    <p>Bagi para pencinta Linux, beralih ke <em>Window Manager</em> berbasis Wayland seperti <strong>Hyprland</strong> adalah sebuah kepuasan tersendiri. Namun, membangun ekosistem desktop yang estetik sekaligus fungsional dari nol bukanlah perkara mudah. Selalu ada drama <em>glitch</em>, config korup, hingga salah jalur <em>path</em> sistem.</p>
+<p>Artikel ini merangkum catatan perjalanan dan tindakan teknis yang saya lakukan untuk membenahi beberapa fitur krusial di sistem Kali Linux bertenaga Hyprland saya.</p>
+<h2>1. Drama Modifikasi SDDM (Layar Login)</h2>
+<p>Perjalanan dimulai dari keinginan untuk mengganti tema layar login (SDDM) bawaan agar lebih estetik menggunakan tema populer <em>Sugar Candy</em>.</p>
+<ul>
+<li>
+<p><strong>Masalah:</strong> Perintah <code>git clone</code> terus-menerus meminta autentikasi/password meskipun repositori tersebut publik. Upaya mengunduh paksa versi <code>.zip</code> via <code>curl</code> sempat gagal (korup) karena pemblokiran <em>User-Agent</em> dari sisi server. Selain itu, biner <code>sddm-greeter</code> di Kali Linux modern disembunyikan dari <code>$PATH</code> global (berada di <code>/usr/lib/sddm/sddm-greeter</code>).</p>
+</li>
+<li>
+<p><strong>Solusi Akhir:</strong> Mengalihkan pilihan ke tema resmi yang stabil dan tersedia langsung di repositori Debian/Kali, yaitu <code>sddm-theme-breeze</code>. Tema ini diaktifkan secara bersih melalui konfigurasi terpusat di <code>/etc/sddm.conf.d/theme.conf</code>.</p>
+</li>
+</ul>
+<h2>2. Menyelamatkan Waybar yang &quot;Pingsan&quot;</h2>
+<p>Setelah melakukan proses <em>log out</em> sistem untuk menguji perubahan tema SDDM, panel status <strong>Waybar</strong> mendadak mati total dan menolak untuk menyala kembali.</p>
+<ul>
+<li><strong>Masalah:</strong> Saat dijalankan manual via terminal, muncul pesan error:</li>
+</ul>
+<blockquote>
+<p><code>Error parsing JSON: * Line 1, Column 1. Syntax error: value, object or array expected.</code></p>
+</blockquote>
+<p>Ternyata, sistem membaca sebuah file duplikat rusak bernama <code>config</code> (tanpa ekstensi) di direktori <code>~/.config/waybar/</code>, sehingga membuat proses <em>parsing</em> Waybar mengalami <em>crash</em>.</p>
+<ul>
+<li><strong>Solusi:</strong> Menghapus file <code>config</code> yang korup tersebut, lalu membuat pintasan resmi (<em>symbolic link</em>) yang mengarah langsung ke file konfigurasi asli kita yang bersih (<code>config.jsonc</code>) menggunakan perintah:</li>
+</ul>
+<pre><code class="language-bash">ln -s ~/.config/waybar/config.jsonc ~/.config/waybar/config
+</code></pre>
+<h2>3. Fitur Notifikasi Low Battery</h2>
+<p>Kehilangan daya laptop secara tiba-tiba saat asyik bekerja di <strong>Window Manager</strong> minimalis adalah mimpi buruk. Solusinya adalah membuat fitur pengingat otomatis.</p>
+<p><strong>Langkah 1:</strong> Membuka file konfigurasi utama Hyprland:</p>
+<pre><code class="language-bash">nano ~/.config/hypr/hyprland.conf
+</code></pre>
+<p><strong>Langkah 2:</strong> Menambahkan blok kode <em>inline daemon</em> ini di baris paling bawah:</p>
+<pre><code class="language-bash">exec-once = bash -c '
+NOTIFIED_LOW=false;
+NOTIFIED_CRITICAL=false;
+while true; do
+    BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT1/capacity);
+    BATTERY_STATUS=$(cat /sys/class/power_supply/BAT1/status);
+    if [ &quot;$BATTERY_STATUS&quot; = &quot;Discharging&quot; ]; then
+        if [ &quot;$BATTERY_LEVEL&quot; -le 20 ] &amp;&amp; [ &quot;$NOTIFIED_LOW&quot; = false ]; then
+            notify-send -u normal -i battery-low &quot;Baterai Lemah!&quot; &quot;Sisa baterai tinggal $BATTERY_LEVEL%. Colok charger gih, Fian.&quot;;
+            NOTIFIED_LOW=true;
+        elif [ &quot;$BATTERY_LEVEL&quot; -le 10 ] &amp;&amp; [ &quot;$NOTIFIED_CRITICAL&quot; = false ]; then
+            notify-send -u critical -i battery-empty &quot;BATERAI KRITIS!&quot; &quot;Sisa baterai $BATTERY_LEVEL%! Laptop mau mati, buruan colok charger!&quot;;
+            NOTIFIED_CRITICAL=true;
+        fi;
+    else
+        NOTIFIED_LOW=false;
+        NOTIFIED_CRITICAL=false;
+    fi;
+    sleep 60;
+done'
+</code></pre>
+<h2>Kesimpulan</h2>
+<p>Ngoprek Linux bukan hanya soal mempercantik visual, tapi bagaimana menyelaraskan efisiensi sistem dengan kenyamanan alur kerja kita. Dengan menyatukan skrip krusial ke <code>hyprland.conf</code> dan menyuntikkan fungsi CLI ke <code>.zshrc</code>, proses pemeliharaan sistem ke depannya menjadi jauh lebih ringkas.</p>
+<p><strong>Happy Ricing!</strong></p>
+
                 </div>
             
             <!-- External Link -->
