@@ -6,7 +6,7 @@
     <title>{{ $title ?? 'FYANZ XDEV' }}</title>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/Logo.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/weblogo.png') }}">
     <!-- Vite Asset Bundler Laravel -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Font Awesome -->
