@@ -295,16 +295,22 @@
 
             <!-- Article Header -->
             <div class="mb-10">
+                                    <span class="px-3 py-1 bg-[#ff0055]/10 border border-[#ff0055]/20 text-[#ff0055] text-xs font-mono tracking-wider rounded mb-4 inline-block">
+                        SoL
+                    </span>
                 
                 <h1 class="text-3xl md:text-5xl font-mono font-black text-white tracking-wide leading-tight mt-4">
-                    Untitled
+                    Menjinakkan Hyprland di Kali Linux: Catatan Ngoprek Setelan Bar, SDDM, hingga Skrip Baterai Custom
                 </h1>
 
+                                    <p class="text-neutral-400 text-lg mt-6 leading-relaxed max-w-2xl">
+                        Hyprland over debian linux distros
+                    </p>
                 
                 <div class="flex items-center gap-6 mt-8 text-sm text-neutral-500 font-mono border-t border-white/10 pt-6">
                                             <span class="flex items-center gap-2">
                             <span class="w-1.5 h-1.5 bg-[#ff0055]"></span>
-                            June 09, 2026
+                            June 03, 2026
                         </span>
                                         <span class="flex items-center gap-2">
                         <span class="w-1.5 h-1.5 bg-[#00ffcc]"></span>
@@ -314,10 +320,84 @@
             </div>
 
             <!-- Cover Image -->
+                            <div class="mb-12 rounded-lg overflow-hidden border border-white/10 relative">
+                    <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#ff0055] z-10"></div>
+                    <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#00ffcc] z-10"></div>
+                    <img src="storage/uploads/WjVnZZnMWr1TqNJxLmL1pZspjCxHz8vWmc8HXNcy.png" alt="Menjinakkan Hyprland di Kali Linux: Catatan Ngoprek Setelan Bar, SDDM, hingga Skrip Baterai Custom" class="w-full h-auto object-cover">
+                </div>
             
             <!-- Article Content -->
-                            <div class="text-center py-16 text-neutral-500">
-                    <p class="text-lg font-mono">Article content not available.</p>
+                            <div class="prose prose-invert max-w-none font-mono text-base leading-relaxed text-neutral-300
+                            prose-headings:text-white prose-headings:font-bold prose-headings:tracking-wider
+                            prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:border-b prose-h2:border-white/10 prose-h2:pb-3
+                            prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+                            prose-p:mb-4 prose-p:leading-relaxed
+                            prose-a:text-[#ff0055] prose-a:no-underline hover:prose-a:underline
+                            prose-strong:text-white prose-strong:font-bold
+                            prose-em:text-neutral-200
+                            prose-code:text-[#00ffcc] prose-code:bg-[#1a1a1a] prose-code:px-2 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+                            prose-pre:bg-[#1a1a1a] prose-pre:border prose-pre:border-white/10 prose-pre:rounded-lg prose-pre:p-4
+                            prose-blockquote:border-l-[#ff0055] prose-blockquote:bg-[#1a1a1a] prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:rounded-r-lg prose-blockquote:my-6
+                            prose-ul:list-disc prose-ol:list-decimal
+                            prose-li:mb-2
+                            prose-img:rounded-lg prose-img:border prose-img:border-white/10">
+                    <p>Bagi para pencinta Linux, beralih ke <em>Window Manager</em> berbasis Wayland seperti <strong>Hyprland</strong> adalah sebuah kepuasan tersendiri. Namun, membangun ekosistem desktop yang estetik sekaligus fungsional dari nol bukanlah perkara mudah. Selalu ada drama <em>glitch</em>, config korup, hingga salah jalur <em>path</em> sistem.</p>
+<p>Artikel ini merangkum catatan perjalanan dan tindakan teknis yang saya lakukan untuk membenahi beberapa fitur krusial di sistem Kali Linux bertenaga Hyprland saya.</p>
+<h2>1. Drama Modifikasi SDDM (Layar Login)</h2>
+<p>Perjalanan dimulai dari keinginan untuk mengganti tema layar login (SDDM) bawaan agar lebih estetik menggunakan tema populer <em>Sugar Candy</em>.</p>
+<ul>
+<li>
+<p><strong>Masalah:</strong> Perintah <code>git clone</code> terus-menerus meminta autentikasi/password meskipun repositori tersebut publik. Upaya mengunduh paksa versi <code>.zip</code> via <code>curl</code> sempat gagal (korup) karena pemblokiran <em>User-Agent</em> dari sisi server. Selain itu, biner <code>sddm-greeter</code> di Kali Linux modern disembunyikan dari <code>$PATH</code> global (berada di <code>/usr/lib/sddm/sddm-greeter</code>).</p>
+</li>
+<li>
+<p><strong>Solusi Akhir:</strong> Mengalihkan pilihan ke tema resmi yang stabil dan tersedia langsung di repositori Debian/Kali, yaitu <code>sddm-theme-breeze</code>. Tema ini diaktifkan secara bersih melalui konfigurasi terpusat di <code>/etc/sddm.conf.d/theme.conf</code>.</p>
+</li>
+</ul>
+<h2>2. Menyelamatkan Waybar yang &quot;Pingsan&quot;</h2>
+<p>Setelah melakukan proses <em>log out</em> sistem untuk menguji perubahan tema SDDM, panel status <strong>Waybar</strong> mendadak mati total dan menolak untuk menyala kembali.</p>
+<ul>
+<li><strong>Masalah:</strong> Saat dijalankan manual via terminal, muncul pesan error:</li>
+</ul>
+<blockquote>
+<p><code>Error parsing JSON: * Line 1, Column 1. Syntax error: value, object or array expected.</code></p>
+</blockquote>
+<p>Ternyata, sistem membaca sebuah file duplikat rusak bernama <code>config</code> (tanpa ekstensi) di direktori <code>~/.config/waybar/</code>, sehingga membuat proses <em>parsing</em> Waybar mengalami <em>crash</em>.</p>
+<ul>
+<li><strong>Solusi:</strong> Menghapus file <code>config</code> yang korup tersebut, lalu membuat pintasan resmi (<em>symbolic link</em>) yang mengarah langsung ke file konfigurasi asli kita yang bersih (<code>config.jsonc</code>) menggunakan perintah:</li>
+</ul>
+<pre><code class="language-bash">ln -s ~/.config/waybar/config.jsonc ~/.config/waybar/config
+</code></pre>
+<h2>3. Fitur Notifikasi Low Battery</h2>
+<p>Kehilangan daya laptop secara tiba-tiba saat asyik bekerja di <strong>Window Manager</strong> minimalis adalah mimpi buruk. Solusinya adalah membuat fitur pengingat otomatis.</p>
+<p><strong>Langkah 1:</strong> Membuka file konfigurasi utama Hyprland:</p>
+<pre><code class="language-bash">nano ~/.config/hypr/hyprland.conf
+</code></pre>
+<p><strong>Langkah 2:</strong> Menambahkan blok kode <em>inline daemon</em> ini di baris paling bawah:</p>
+<pre><code class="language-bash">exec-once = bash -c '
+NOTIFIED_LOW=false;
+NOTIFIED_CRITICAL=false;
+while true; do
+    BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT1/capacity);
+    BATTERY_STATUS=$(cat /sys/class/power_supply/BAT1/status);
+    if [ &quot;$BATTERY_STATUS&quot; = &quot;Discharging&quot; ]; then
+        if [ &quot;$BATTERY_LEVEL&quot; -le 20 ] &amp;&amp; [ &quot;$NOTIFIED_LOW&quot; = false ]; then
+            notify-send -u normal -i battery-low &quot;Baterai Lemah!&quot; &quot;Sisa baterai tinggal $BATTERY_LEVEL%. Colok charger gih, Fian.&quot;;
+            NOTIFIED_LOW=true;
+        elif [ &quot;$BATTERY_LEVEL&quot; -le 10 ] &amp;&amp; [ &quot;$NOTIFIED_CRITICAL&quot; = false ]; then
+            notify-send -u critical -i battery-empty &quot;BATERAI KRITIS!&quot; &quot;Sisa baterai $BATTERY_LEVEL%! Laptop mau mati, buruan colok charger!&quot;;
+            NOTIFIED_CRITICAL=true;
+        fi;
+    else
+        NOTIFIED_LOW=false;
+        NOTIFIED_CRITICAL=false;
+    fi;
+    sleep 60;
+done'
+</code></pre>
+<h2>Kesimpulan</h2>
+<p>Ngoprek Linux bukan hanya soal mempercantik visual, tapi bagaimana menyelaraskan efisiensi sistem dengan kenyamanan alur kerja kita. Dengan menyatukan skrip krusial ke <code>hyprland.conf</code> dan menyuntikkan fungsi CLI ke <code>.zshrc</code>, proses pemeliharaan sistem ke depannya menjadi jauh lebih ringkas.</p>
+<p><strong>Happy Ricing!</strong></p>
+
                 </div>
             
             <!-- External Link -->
@@ -329,15 +409,12 @@
                     </h3>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                                    <a href="../article/2.html" class="group bg-[#12141c] border border-white/5 hover:border-[#ff0055]/30 rounded-lg overflow-hidden transition-colors">
-                                                                    <div class="h-32 overflow-hidden">
-                                        <img src="storage/uploads/WjVnZZnMWr1TqNJxLmL1pZspjCxHz8vWmc8HXNcy.png" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                                    </div>
+                                                    <a href="../article/1.html" class="group bg-[#12141c] border border-white/5 hover:border-[#ff0055]/30 rounded-lg overflow-hidden transition-colors">
                                                                 <div class="p-4">
                                     <h4 class="font-mono font-bold text-sm text-white group-hover:text-[#ff0055] transition-colors line-clamp-2">
-                                        Menjinakkan Hyprland di Kali Linux: Catatan Ngoprek Setelan Bar, SDDM, hingga Skrip Baterai Custom
+                                        Untitled
                                     </h4>
-                                                                            <span class="text-[10px] font-mono text-neutral-600 mt-2 block">2026-06-03</span>
+                                                                            <span class="text-[10px] font-mono text-neutral-600 mt-2 block">2026-06-09</span>
                                                                     </div>
                             </a>
                                             </div>

@@ -187,6 +187,8 @@ function fixAssetPaths(string $html, string $prefix): string {
     $html = preg_replace('/href="\/article\/(\d+)"/', 'href="'.$prefix.'article/$1.html"', $html);
     $html = preg_replace('/href="http:\/\/:[^"]*article\/(\d+)[^"]*"/', 'href="'.$prefix.'article/$1.html"', $html);
     $html = str_replace('href="/#', 'href="'.$prefix.'#', $html);
+    $html = preg_replace('/href="http:\/\/:[^"]*\/favicon\.ico"/', 'href="'.$prefix.'favicon.ico"', $html);
+    $html = str_replace('href="/favicon.ico"', 'href="'.$prefix.'favicon.ico"', $html);
     return $html;
 }
 
